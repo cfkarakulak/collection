@@ -39,7 +39,7 @@ class TestCollection:
         assert sut == expected
 
     def test_last_none(self):
-        assert Collection([]).last() == None
+        assert Collection([]).last() is None
 
     def test_last_no_arguments(self):
         expected = 1
@@ -159,7 +159,7 @@ class TestCollection:
         expected_result = Collection([1, 2])
         other_expected_result = Collection([2, 1])
         sut = Collection([1, 2]).shuffle()
-        assert sut == expected_result or sut == other_expected_result
+        assert sut in [expected_result, other_expected_result]
 
     def test_skip_until(self):
         expected = Collection([3, 1])
